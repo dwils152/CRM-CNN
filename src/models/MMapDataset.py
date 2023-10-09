@@ -4,16 +4,16 @@ import numpy as np
 from Bio import SeqIO
 
 class MMapDataset(Dataset):
-    def __init__(self, seqs_path, labels_path,  fasta, length, use_annotations=False):
+    def __init__(self, seqs_path, labels_path,  fasta_path, length, use_annotations=False):
         
-        self.fasta = fasta
+        self.fasta = fasta_path
         self.labels_map = np.memmap(labels_path, dtype='float32', mode='r', shape=(self._dataset_size(), 1))
         self.seqs_map = np.memmap(seqs_path, dtype='float32', mode='r', shape=(self._dataset_size()*4, length))
 
         self.use_annotations = use_annotations
         self.annotations = []
         if use_annotations:
-            record_ids = [record.id for record in SeqIO.parse(fasta, 'fasta')]
+            record_ids = [record.id for record in SeqIO.parse(fasta_path, 'fasta')]
 
             self.annotations = record_ids
 
@@ -36,29 +36,5 @@ class MMapDataset(Dataset):
     def __len__(self):
         return self._dataset_size()
     
-def debug():
-    dataset = MMapDataset('/projects/zcsu_research1/dwils152/Motif-Cnn/Data-v2/mm10_100_0_None_0.5/SEQS.npy',
-                          '/projects/zcsu_research1/dwils152/Motif-Cnn/Data-v2/mm10_100_0_None_0.5/LABELS.npy',
-                          '/projects/zcsu_research1/dwils152/Motif-Cnn/Data-v2/mm10_100_0_None_0.5/pos_neg.fa',
-                          100,
-                          use_annotations=True)
-
-    seq, label, annot = dataset[0]
-    print(seq, label)
-    
-    print(dataset._dataset_size())
-
-
-    #labels = []
-    #datase_size = dataset._dataset_size()
-
-    #for i in range(len(datase_size)):
-    #    labels.append(dataset.__getitem__(i))
-
-    #print(set(labels))
-    
-    #print(dataset.length)
-    
-#debug()
     
                           
