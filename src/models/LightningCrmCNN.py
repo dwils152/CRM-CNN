@@ -13,7 +13,8 @@ class LightningCrmCNN(pl.LightningModule):
         labels = squeeze(labels).float()
         predictions = self.crm_cnn(inputs)
         predictions = squeeze(predictions) 
-        loss = nn.BCELoss(predictions, labels)
+        loss = nn.BCELoss()(predictions, labels)
+        self.log('train_loss', loss, sync_dist=True, on_step=True, on_epoch=True)
         return loss
     
     def validation_step(self, batch, batch_idx):
@@ -23,8 +24,8 @@ class LightningCrmCNN(pl.LightningModule):
         labels = squeeze(labels).float()
         predictions = self.crm_cnn(inputs)
         predictions = squeeze(predictions) 
-        val_loss = nn.BCELoss(predictions, labels)
-        self.log('val_loss', val_loss)
+        val_loss = nn.BCELoss()(predictions, labels)
+        self.log('val_loss', val_loss, sync_dist=True, on_step=True, on_epoch=True)
     
     def test_step(self, batch, batch_idx):
         inputs, labels = batch
@@ -33,8 +34,8 @@ class LightningCrmCNN(pl.LightningModule):
         labels = squeeze(labels).float()
         predictions = self.crm_cnn(inputs)
         predictions = squeeze(predictions) 
-        test_loss = nn.BCELoss(predictions, labels)
-        self.log('test_loss', test_loss)
+        test_loss = nn.BCELoss()(predictions, labels)
+        self.log('test_loss', test_loss, sync_dist=True, on_step=True, on_epoch=True)
 
     def configure_optimizers(self):
         optimizer = optim.Adam(self.parameters(), lr=1e-3)

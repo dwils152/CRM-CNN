@@ -76,10 +76,10 @@ class CrmCNN(nn.Module):
         self.fc3 = nn.Linear(100, 1)
 
         # Save the weights of the first layers's kernels
-        self.first_layer_kernels = self.convolutional_layer_1.weight.data.cpu().numpy()
+        self.first_layer_kernels = self.conv_layer_1.weight.data.cpu().numpy()
         
         
-    def feature_hook(self, output: Tensor):
+    def feature_hook(self, module, input, output: Tensor):
         """
         Append the output features to the feature list.
 
@@ -102,7 +102,7 @@ class CrmCNN(nn.Module):
         """
         
         #print(x.shape)
-        x = self.convolutional_layer_1(x)
+        x = self.conv_layer_1(x)
         #print(x.shape)
         x = self.activation(x)
         x = self.batch_norm(x)
@@ -113,7 +113,7 @@ class CrmCNN(nn.Module):
         x = self.dropout(x)
 
         for layer in range(self.num_layers - 1):
-            x = self.convolutional_layer_n(x) # change to convolutional_layer_n
+            x = self.conv_layer_n(x) # change to convolutional_layer_n
             #print(x.shape)
             x = self.activation(x)
             x = self.batch_norm_n(x)

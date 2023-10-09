@@ -1,10 +1,8 @@
-# (submit.sh)
-#!/bin/bash -l
-
-# SLURM SUBMIT SCRIPT
-#SBATCH --nodes=4             # This needs to match Trainer(num_nodes=...)
-#SBATCH --gres=gpu:8
-#SBATCH --ntasks-per-node=8   # This needs to match Trainer(devices=...)
+#!/bin/bash
+#SBATCH --partition=GPU
+#SBATCH --nodes=1             # This needs to match Trainer(num_nodes=...)
+#SBATCH --gres=gpu:4
+#SBATCH --ntasks-per-node=4   # This needs to match Trainer(devices=...)
 #SBATCH --mem=0
 #SBATCH --time=0-02:00:00
 
@@ -12,8 +10,8 @@
 conda activate ptl
 
 # debugging flags (optional)
-export NCCL_DEBUG=INFO
-export PYTHONFAULTHANDLER=1
+#export NCCL_DEBUG=INFO
+#export PYTHONFAULTHANDLER=1
 
 # on your cluster you might need these:
 # set the network interface
