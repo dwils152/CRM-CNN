@@ -15,8 +15,6 @@ import torch
 
 def objective(trial):
     
-    #set_seed(42)
-
     data = MMapDataset(seqs_path=args.seqs,
                     labels_path=args.labels, 
                     fasta_path=args.fasta,
@@ -48,9 +46,6 @@ def objective(trial):
     
     model = LightningCrmCNN(CrmCNN(config))
     
-    # Create a DDP strategy
-    #strategy = pl.strategies.SingleDeviceStrategy(device=torch.device("cuda:0"))
-
     trainer = pl.Trainer(max_epochs=args.epochs,
                         accelerator='gpu',
                         devices=1,
@@ -61,13 +56,6 @@ def objective(trial):
     trainer.fit(model, train_loader, val_loader)
     return trainer.callback_metrics["val_loss"].item()
 
-def set_seed(seed):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-
-set_seed(42)  # Use a fixed seed
 
 def main(args):
      
