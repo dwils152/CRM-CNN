@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=4      # This needs to match Trainer(num_processes=...)
 #SBATCH --ntasks-per-node=4   # This needs to match Trainer(devices=...)
 #SBATCH --mem=0
-#SBATCH --time=0-02:00:00
+#SBATCH --time=500:00:00
 
 # activate conda env
 conda activate ptl

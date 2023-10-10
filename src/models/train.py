@@ -61,7 +61,7 @@ def main(args):
      
     #pruner = optuna.pruners.MedianPruner() if args.pruning else optuna.pruners.NopPruner()
     study = optuna.create_study(direction="minimize") #pruner=pruner)
-    study.optimize(objective, n_trials=100)
+    study.optimize(objective, n_trials=10)
     
     print("Number of finished trials: {}".format(len(study.trials)))
     print("Best trial:")
