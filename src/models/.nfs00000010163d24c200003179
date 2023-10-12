@@ -1,0 +1,444 @@
+no change     /apps/pkg/anaconda3/2020.11/condabin/conda
+no change     /apps/pkg/anaconda3/2020.11/bin/conda
+no change     /apps/pkg/anaconda3/2020.11/bin/conda-env
+no change     /apps/pkg/anaconda3/2020.11/bin/activate
+no change     /apps/pkg/anaconda3/2020.11/bin/deactivate
+no change     /apps/pkg/anaconda3/2020.11/etc/profile.d/conda.sh
+no change     /apps/pkg/anaconda3/2020.11/etc/fish/conf.d/conda.fish
+no change     /apps/pkg/anaconda3/2020.11/shell/condabin/Conda.psm1
+no change     /apps/pkg/anaconda3/2020.11/shell/condabin/conda-hook.ps1
+no change     /apps/pkg/anaconda3/2020.11/lib/python3.8/site-packages/xontrib/conda.xsh
+no change     /apps/pkg/anaconda3/2020.11/etc/profile.d/conda.csh
+no change     /users/dwils152/.bashrc
+No action taken.
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+Traceback (most recent call last):
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(args)
+  File "train.py", line 70, in main
+    study = optuna.create_study(direction="maximize",
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/_convert_positional_args.py", line 63, in converter_wrapper
+    return func(**kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/study/study.py", line 1147, in create_study
+    storage = storages.get_storage(storage)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/__init__.py", line 32, in get_storage
+    return _CachedStorage(RDBStorage(storage))
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/_rdb/storage.py", line 221, in __init__
+    models.BaseModel.metadata.create_all(self.engine)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 5813, in create_all
+    bind._run_ddl_visitor(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3238, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3228, in begin
+    with self.connect() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3264, in connect
+    return self._connection_cls(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2426, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(args)
+  File "train.py", line 70, in main
+    study = optuna.create_study(direction="maximize",
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/_convert_positional_args.py", line 63, in converter_wrapper
+    return func(**kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/study/study.py", line 1147, in create_study
+    storage = storages.get_storage(storage)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/__init__.py", line 32, in get_storage
+    return _CachedStorage(RDBStorage(storage))
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/_rdb/storage.py", line 221, in __init__
+    models.BaseModel.metadata.create_all(self.engine)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 5813, in create_all
+    bind._run_ddl_visitor(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3238, in _run_ddl_visitor
+    with self.begin() as conn:
+Traceback (most recent call last):
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(args)
+  File "train.py", line 70, in main
+    study = optuna.create_study(direction="maximize",
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/_convert_positional_args.py", line 63, in converter_wrapper
+    return func(**kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/study/study.py", line 1147, in create_study
+    storage = storages.get_storage(storage)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/__init__.py", line 32, in get_storage
+    return _CachedStorage(RDBStorage(storage))
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/_rdb/storage.py", line 221, in __init__
+    models.BaseModel.metadata.create_all(self.engine)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 5813, in create_all
+    bind._run_ddl_visitor(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3238, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3228, in begin
+    with self.connect() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3264, in connect
+    return self._connection_cls(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2426, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3228, in begin
+    with self.connect() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3264, in connect
+    return self._connection_cls(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2426, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(args)
+  File "train.py", line 70, in main
+    study = optuna.create_study(direction="maximize",
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/_convert_positional_args.py", line 63, in converter_wrapper
+    return func(**kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/study/study.py", line 1147, in create_study
+    storage = storages.get_storage(storage)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/__init__.py", line 32, in get_storage
+    return _CachedStorage(RDBStorage(storage))
+  File "/users/dwils152/.local/lib/python3.8/site-packages/optuna/storages/_rdb/storage.py", line 221, in __init__
+    models.BaseModel.metadata.create_all(self.engine)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 5813, in create_all
+    bind._run_ddl_visitor(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3238, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3228, in begin
+    with self.connect() as conn:
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3264, in connect
+    return self._connection_cls(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2426, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3288, in raw_connection
+    return self.pool.connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 1267, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 716, in checkout
+    rec = pool._do_get()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 170, in _do_get
+    self._dec_overflow()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 167, in _do_get
+    return self._create_connection()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __init__
+    self.__connect()
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 903, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/users/dwils152/.conda/envs/ptl2/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 615, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/users/dwils152/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (2002, "Can't connect to local MySQL server through socket '/users/dwils152/mysql/run/mysqld/mysqld.sock' (111)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+srun: error: str-gpu3: tasks 1-3: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=6134080.0
+slurmstepd: error: *** STEP 6134080.0 ON str-gpu3 CANCELLED AT 2023-10-12T13:36:45 ***
+srun: error: str-gpu3: task 0: Exited with exit code 1

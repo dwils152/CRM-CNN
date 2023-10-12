@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --job-name=pytorch_primary
 #SBATCH --partition=GPU
 #SBATCH --nodes=1             # This needs to match Trainer(num_nodes=...)
 #SBATCH --gres=gpu:4
@@ -7,8 +8,6 @@
 #SBATCH --mem=0
 #SBATCH --time=500:00:00
 
-# activate conda env
-conda activate ptl
 
 # debugging flags (optional)
 #export NCCL_DEBUG=INFO
@@ -22,4 +21,4 @@ conda activate ptl
 # module load NCCL/2.4.7-1-cuda.10.0
 
 # run script from above
-srun python3 train.py
+srun python train.py

@@ -7,10 +7,10 @@ class LightningCrmCNN(pl.LightningModule):
     def __init__(self, crm_cnn):
         super().__init__()
         self.crm_cnn = crm_cnn
-        self.criterion = nn.BCELoss()
+        self.criterion = nn.BCEWithLogitsLoss()
         self.accuracy = Accuracy(task='binary')
         self.auroc = AUROC(task='binary')
-        self.fbeta = FBetaScore(task='binary', beta=1)
+        self.fbeta = FBetaScore(task='binary', beta=1.0)
 
     def _compute_metrics(self, batch, stage):
         inputs, labels = batch
